@@ -1,0 +1,23 @@
+{
+    "name": "console-beautifier",
+    "version": "0.4",
+    "description": "A JavaScript module for adding colors and bold formatting to console output.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "keywords": [
+        "console",
+        "log",
+        "color",
+        "formatting",
+        "node",
+        "javascript"
+    ],
+    "author": "Felipe Travassos <contato@felipetravassos.com>",
+    "license": "MIT",
+    "dependencies": {
+        "colors": "^1.4.0"
+    }
+}

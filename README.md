@@ -34,17 +34,17 @@ Import the module in your JavaScript code:
 
 JavaScript
 
-    const consoleBeautifier = require('consolebeautifier');
+    const beautify = require('consolebeautifier');
     
 content\_copy
 
-Use the `consoleBeautifier` object to add colors and bold formatting to your console messages:
+Use the `beautify` object to add colors and bold formatting to your console messages:
 
 JavaScript
 
-    console.log(consoleBeautifier.red('Error: An unexpected error occurred.'));
-    console.log(consoleBeautifier.green('Success: Operation completed successfully.'));
-    console.log(consoleBeautifier.bold('Important message: Please pay attention to this.'));
+    console.log(beautify.red('Error: An unexpected error occurred.'));
+    console.log(beautify.green('Success: Operation completed successfully.'));
+    console.log(beautify.bold('Important message: Please pay attention to this.'));
 
 
 content\_copy
@@ -55,7 +55,7 @@ To make text bold, pass the `true` flag as the second argument to the formatting
 
 JavaScript
 
-    console.log(consoleBeautifier.red('Error: An unexpected error occurred.', true));
+    console.log(beautify.red('Error: An unexpected error occurred.', true));
     
 
 content\_copy
