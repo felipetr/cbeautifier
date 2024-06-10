@@ -1,11 +1,10 @@
 {
-    "name": "console-beautifier",
-    "version": "0.4",
+    "name": "cbeautifier",
+    "version": "0.0.5",
     "description": "A JavaScript module for adding colors and bold formatting to console output.",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node index.js"
+        "test": "npx jest cb-test.js"
     },
     "keywords": [
         "console",
@@ -16,8 +15,5 @@
         "javascript"
     ],
     "author": "Felipe Travassos <contato@felipetravassos.com>",
-    "license": "MIT",
-    "dependencies": {
-        "colors": "^1.4.0"
-    }
+    "license": "MIT"
 }

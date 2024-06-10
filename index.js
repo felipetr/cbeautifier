@@ -1,24 +1,62 @@
-const colors = require('colors');
+const reset = '\x1b[0m';
+const bold = '\x1b[1m';
 
-const formatText = (text, color, backgroundColor, bold = false) => {
+const ansi256Colors = {
+  black: 0,
+  red: 1,
+  green: 2,
+  yellow: 3,
+  blue: 4,
+  magenta: 5,
+  cyan: 6,
+  white: 7,
+  gray: 8,
+  // Extended colors
+  brightRed: 9,
+  brightGreen: 10,
+  brightYellow: 11,
+  brightBlue: 12,
+  brightMagenta: 13,
+  brightCyan: 14,
+  brightWhite: 15,
+  // Cubes and grayscale colors can be added similarly
+};
+
+const ansi256BgColors = {
+  black: 0,
+  red: 1,
+  green: 2,
+  yellow: 3,
+  blue: 4,
+  magenta: 5,
+  cyan: 6,
+  white: 7,
+  gray: 8,
+  // Extended colors
+  brightRed: 9,
+  brightGreen: 10,
+  brightYellow: 11,
+  brightBlue: 12,
+  brightMagenta: 13,
+  brightCyan: 14,
+  brightWhite: 15,
+  // Cubes and grayscale colors can be added similarly
+};
+
+const formatText = (text, color, backgroundColor, isBold) => {
   let formattedText = text;
 
-  if (color && colors[color]) {
-    formattedText = colors[color](formattedText);
+  if (color && ansi256Colors[color] !== undefined) {
+    formattedText = `\x1b[38;5;${ansi256Colors[color]}m` + formattedText;
+  }
+  if (backgroundColor && ansi256BgColors[backgroundColor] !== undefined) {
+    formattedText = `\x1b[48;5;${ansi256BgColors[backgroundColor]}m` + formattedText;
+  }
+  if (isBold) {
+    formattedText = bold + formattedText;
   }
 
-  if (backgroundColor) {
-    const bgColorFunction = `bg${backgroundColor.charAt(0).toUpperCase() + backgroundColor.slice(1)}`;
-    if (colors[bgColorFunction]) {
-      formattedText = colors[bgColorFunction](formattedText);
-    }
-  }
-
-  if (bold) {
-    formattedText = colors.bold(formattedText);
-  }
-
-  return formattedText;
+  return formattedText + reset;
 };
 
 const createBeautifyFunction = (color) => {
@@ -26,8 +64,9 @@ const createBeautifyFunction = (color) => {
 };
 
 const colorsList = [
-  'red', 'green', 'blue', 'yellow', 'magenta',
-  'cyan', 'white', 'black', 'gray'
+  'black', 'red', 'green', 'yellow', 'blue', 'magenta',
+  'cyan', 'white', 'gray', 'brightRed', 'brightGreen',
+  'brightYellow', 'brightBlue', 'brightMagenta', 'brightCyan', 'brightWhite'
 ];
 
 const beautify = {};

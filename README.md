@@ -19,11 +19,11 @@
 
 ### Installation
 
-Install the `consolebeautifier` module using npm:
+Install the `cbeautifier` module using npm:
 
 Bash
 
-    npm install consolebeautifier
+    npm install cbeautifier
     
 
 content\_copy
@@ -34,7 +34,7 @@ Import the module in your JavaScript code:
 
 JavaScript
 
-    const beautify = require('consolebeautifier');
+    const beautify = require('cbeautifier');
     
 content\_copy
 
@@ -62,7 +62,7 @@ content\_copy
 
 ### Additional Options
 
-The `consolebeautifier` module offers a wide range of formatting options, including:
+The `cbeautifier` module offers a wide range of formatting options, including:
 
 *   Colors: `red`, `green`, `blue`, `yellow`, `magenta`, `cyan`, `white`, `black`, `gray`
 *   Background colors: `redBg`, `greenBg`, `blueBg`, `yellowBg`, `magentaBg`, `cyanBg`, `whiteBg`, `blackBg`, `grayBg`
@@ -72,8 +72,8 @@ Refer to the module's documentation for a complete list of options and usage exa
 
 ### Contributing
 
-We welcome contributions to the `consolebeautifier` module. Please feel free to report issues, suggest improvements, or create pull requests.
+We welcome contributions to the `cbeautifier` module. Please feel free to report issues, suggest improvements, or create pull requests.
 
 ### License
 
-The `consolebeautifier` module is licensed under the MIT License.
+The `cbeautifier` module is licensed under the MIT License.
