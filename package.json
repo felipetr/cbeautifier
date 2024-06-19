@@ -1,6 +1,6 @@
 {
     "name": "cbeautifier",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "description": "A JavaScript module for adding colors and bold formatting to console output.",
     "main": "index.js",
     "scripts": {
