@@ -26,8 +26,6 @@ Bash
     npm install cbeautifier
     
 
-content\_copy
-
 ### Usage
 
 Import the module in your JavaScript code:
@@ -35,8 +33,6 @@ Import the module in your JavaScript code:
 JavaScript
 
     const beautify = require('cbeautifier');
-    
-content\_copy
 
 Use the `beautify` object to add colors and bold formatting to your console messages:
 
@@ -46,9 +42,6 @@ JavaScript
     console.log(beautify.green('Success: Operation completed successfully.'));
     console.log(beautify.white('Important message: Please pay attention to this.'),true);
 
-
-content\_copy
-
 **Bold Formatting:**
 
 To make text bold, pass the `true` flag as the second argument to the formatting function:
@@ -57,8 +50,6 @@ JavaScript
 
     console.log(beautify.red('Error: An unexpected error occurred.', true));
     
-
-content\_copy
 
 ### Additional Options
 
