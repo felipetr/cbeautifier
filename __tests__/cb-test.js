@@ -1,45 +1,47 @@
+
 const beautify = require('../index');
 
-console.log = jest.fn();
+console.log('Formatted red text:', beautify.red('This is a red text'));
+console.log('Formatted bold green text with black background:', beautify.green('This is bold green text with black background', true, 'black'));
+console.log('Formatted bold black text with green background:', beautify.black('This is bold black text with green background', true, 'green'));
+console.log('Formatted red text without background and bold:', beautify.red('This is red text without background and bold', true, null));
+console.log('Formatted bold white text without background:', beautify.white('This is bold white text without background', true));
+console.log('Formatted bright red text:', beautify.brightRed('This is bright red text'));
+console.log('Formatted bold bright green text with bright blue background:', beautify.brightGreen('This is bold bright green text with bright blue background', true, 'brightBlue'));
 
-describe('Beautify Module', () => {
-  afterEach(() => {
-    jest.clearAllMocks();
+describe('Testing beautify functions', () => {
+  it('should print red text', () => {
+    const formattedText = beautify.red('This is a red text');
+    expect(formattedText).toBe('\x1b[38;5;1mThis is a red text\x1b[0m');
   });
 
-  test('should print red text', () => {
-    beautify.red('This is a red text');
-    expect(console.log).toHaveBeenCalledWith(expect.stringContaining('\x1b[38;5;1mThis is a red text\x1b[0m'));
+  it('should print bold green text with black background', () => {
+    const formattedText = beautify.green('This is bold green text with black background', true, 'black');
+    expect(formattedText).toBe('\x1b[1m\x1b[48;5;0m\x1b[38;5;2mThis is bold green text with black background\x1b[0m');
   });
 
-  test('should print bold green text with black background', () => {
-    beautify.green('Bold green on black', 'black', true);
-    expect(console.log).toHaveBeenCalledWith(expect.stringContaining('\x1b[1m\x1b[48;5;0m\x1b[38;5;2mBold green on black\x1b[0m'));
+  it('should print bold black text with green background', () => {
+    const formattedText = beautify.black('This is bold black text with green background', true, 'green');
+    expect(formattedText).toBe('\x1b[1m\x1b[48;5;2m\x1b[38;5;0mThis is bold black text with green background\x1b[0m');
   });
 
-  test('should print bold black text with green background', () => {
-    beautify.black('Bold black on green', 'green', true);
-    expect(console.log).toHaveBeenCalledWith(expect.stringContaining('\x1b[1m\x1b[48;5;2m\x1b[38;5;0mBold black on green\x1b[0m'));
+  it('should print red text without background and bold', () => {
+    const formattedText = beautify.red('This is red text without background and bold', true, null);
+    expect(formattedText).toBe('\x1b[1m\x1b[38;5;1mThis is red text without background and bold\x1b[0m');
   });
 
-  test('should print red text without background and bold', () => {
-    beautify.red('Red');
-    expect(console.log).toHaveBeenCalledWith(expect.stringContaining('\x1b[38;5;1mRed\x1b[0m'));
+  it('should print bold white text without background', () => {
+    const formattedText = beautify.white('This is bold white text without background', true);
+    expect(formattedText).toBe('\x1b[1m\x1b[38;5;7mThis is bold white text without background\x1b[0m');
   });
 
-  test('should print bold white text without background', () => {
-    beautify.white('Bold Text', null, true);
-    expect(console.log).toHaveBeenCalledWith(expect.stringContaining('\x1b[1m\x1b[38;5;7mBold Text\x1b[0m'));
+  it('should print bright red text', () => {
+    const formattedText = beautify.brightRed('This is bright red text');
+    expect(formattedText).toBe('\x1b[38;5;9mThis is bright red text\x1b[0m');
   });
 
-  test('should print bright red text', () => {
-    beautify.brightRed('Bright red text');
-    expect(console.log).toHaveBeenCalledWith(expect.stringContaining('\x1b[38;5;9mBright red text\x1b[0m'));
+  it('should print bold bright green text with bright blue background', () => {
+    const formattedText = beautify.brightGreen('This is bold bright green text with bright blue background', true, 'brightBlue');
+    expect(formattedText).toBe('\x1b[1m\x1b[48;5;12m\x1b[38;5;10mThis is bold bright green text with bright blue background\x1b[0m');
   });
-
-  test('should print bold bright green text with bright blue background', () => {
-    beautify.brightGreen('Bright green on bright blue', 'brightBlue', true);
-    expect(console.log).toHaveBeenCalledWith(expect.stringContaining('\x1b[1m\x1b[48;5;12m\x1b[38;5;10mBright green on bright blue\x1b[0m'));
-  });
-
 });

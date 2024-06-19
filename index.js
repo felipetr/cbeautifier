@@ -1,3 +1,5 @@
+// index.js
+
 const reset = '\x1b[0m';
 const bold = '\x1b[1m';
 
@@ -43,7 +45,7 @@ const ansi256BgColors = {
   // Cubes and grayscale colors can be added similarly
 };
 
-const formatText = (text, color, backgroundColor, isBold) => {
+const formatText = (text, color, isBold = false, backgroundColor = null) => {
   let formattedText = text;
 
   if (color && ansi256Colors[color] !== undefined) {
@@ -60,7 +62,9 @@ const formatText = (text, color, backgroundColor, isBold) => {
 };
 
 const createBeautifyFunction = (color) => {
-  return (text, backgroundColor = null, bold = false) => console.log(formatText(text, color, backgroundColor, bold));
+  return (text, isBold = false, backgroundColor = null) => {
+    return formatText(text, color, isBold, backgroundColor);
+  };
 };
 
 const colorsList = [
