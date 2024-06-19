@@ -44,7 +44,7 @@ JavaScript
 
     console.log(beautify.red('Error: An unexpected error occurred.'));
     console.log(beautify.green('Success: Operation completed successfully.'));
-    console.log(beautify.bold('Important message: Please pay attention to this.'));
+    console.log(beautify.white('Important message: Please pay attention to this.'),true);
 
 
 content\_copy
