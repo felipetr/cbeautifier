@@ -1,51 +1,9 @@
-// index.js
+const { ansi256Colors, ansi256BgColors } = require('./colors');
 
 const reset = '\x1b[0m';
 const bold = '\x1b[1m';
 
-const ansi256Colors = {
-  black: 0,
-  red: 1,
-  green: 2,
-  yellow: 3,
-  blue: 4,
-  magenta: 5,
-  cyan: 6,
-  white: 7,
-  gray: 8,
-  // Extended colors
-  brightRed: 9,
-  brightGreen: 10,
-  brightYellow: 11,
-  brightBlue: 12,
-  brightMagenta: 13,
-  brightCyan: 14,
-  brightWhite: 15,
-  // Cubes and grayscale colors can be added similarly
-};
-
-const ansi256BgColors = {
-  black: 0,
-  red: 1,
-  green: 2,
-  yellow: 3,
-  blue: 4,
-  magenta: 5,
-  cyan: 6,
-  white: 7,
-  gray: 8,
-  // Extended colors
-  brightRed: 9,
-  brightGreen: 10,
-  brightYellow: 11,
-  brightBlue: 12,
-  brightMagenta: 13,
-  brightCyan: 14,
-  brightWhite: 15,
-  // Cubes and grayscale colors can be added similarly
-};
-
-const formatText = (text, color, isBold = false, backgroundColor = null) => {
+const formatText = (text, color, backgroundColor, isBold) => {
   let formattedText = text;
 
   if (color && ansi256Colors[color] !== undefined) {
@@ -62,15 +20,15 @@ const formatText = (text, color, isBold = false, backgroundColor = null) => {
 };
 
 const createBeautifyFunction = (color) => {
-  return (text, isBold = false, backgroundColor = null) => {
-    return formatText(text, color, isBold, backgroundColor);
-  };
+  return (text, bold = false, backgroundColor = null) => formatText(text, color, backgroundColor, bold);
 };
 
 const colorsList = [
   'black', 'red', 'green', 'yellow', 'blue', 'magenta',
   'cyan', 'white', 'gray', 'brightRed', 'brightGreen',
-  'brightYellow', 'brightBlue', 'brightMagenta', 'brightCyan', 'brightWhite'
+  'brightYellow', 'brightBlue', 'brightMagenta', 'brightCyan', 'brightWhite',
+  'darkRed', 'darkGreen', 'darkYellow', 'darkBlue', 'darkMagenta', 'darkCyan',
+  'lightGray', 'darkGray'
 ];
 
 const beautify = {};
